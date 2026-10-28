@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>User Guide Download</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+    :root { --bg: #fbfcfa; --ink: #141a16; --muted: #5d6862; --accent: #5f8a1f; --plum: #9d4485; --line: #e4e8e2; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #121614; --ink: #eef2ef; --muted: #97a29c; --accent: #a6cf5c; --plum: #d48bc1; --line: #262d29; } }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: var(--bg); color: var(--ink);
+           font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; padding: 16px; box-sizing: border-box; }
+    .box { max-width: 460px; text-align: center; }
+    img { width: 72px; height: 72px; }
+    h1 { font-size: 24px; margin: 14px 0 6px; }
+    p { color: var(--muted); margin: 0 0 18px; }
+    a.btn { display: inline-block; padding: 11px 20px; border-radius: 10px; background: var(--plum); color: #fff; font-weight: 600; text-decoration: none; margin: 4px; }
+    a.alt { background: transparent; color: var(--accent); border: 1px solid var(--line); }
+</style>
+</head>
+<body>
+<div class="box">
+    <img src="assets/logo.png" alt="">
+    <h1>Your download has started</h1>
+    <p>Shopify Odoo Connector (TM) user guide, PDF. If it does not start, use the button below.</p>
+    <a class="btn" id="pdf" href="shopify-odoo-connector-guide.pdf" download>Download the PDF</a>
+    <a class="btn alt" href="./">Read it online</a>
+</div>
+<script>
+    // Same-origin link with the download attribute: the browser saves the file instead of opening it
+    window.addEventListener("load", function () { document.getElementById("pdf").click(); });
+</script>
+</body>
+</html>

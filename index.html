@@ -1,0 +1,1271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopify Odoo Connector Help</title>
+<meta name="description" content="How Shopify Odoo Connector (TM) connects your Shopify store to Odoo 16 to 20: setup, products, stock, orders, invoices, fulfillment, customers and troubleshooting.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="assets/doc.css">
+<script>
+    // Theme before first paint: saved choice, else the system's
+    (function () {
+        var t = null;
+        try { t = localStorage.getItem("doc-theme"); } catch (e) {}
+        if (!t && window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches) t = "light";
+        if (t) document.documentElement.dataset.theme = t;
+    })();
+</script>
+</head>
+<body>
+<header class="hdr">
+    <button class="icon-btn menu-btn" id="menu" aria-label="Topics">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="brand" href="#top"><img src="assets/logo.png" alt=""><span>Shopify Odoo Connector</span><span class="sep">/</span><span class="sub">Help</span></a>
+    <div class="search">
+        <input id="q" type="search" placeholder="Search the docs" autocomplete="off" aria-label="Search the docs">
+        <kbd>/</kbd>
+        <div class="results" id="results"></div>
+    </div>
+    <div class="hdr-actions">
+        <button class="icon-btn" id="theme" aria-label="Light or dark theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <a class="icon-btn" href="shopify-odoo-connector-guide.pdf" download aria-label="Download PDF" title="Download PDF">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+        </a>
+        <a class="btn" href="mailto:support@techmarbles.com">Contact support</a>
+    </div>
+</header>
+<div class="layout">
+<nav class="side" id="side" aria-label="Topics"></nav>
+<main id="top">
+<div class="home">
+    <div class="eyebrow">HELP CENTER</div>
+    <h1>Shopify Odoo Connector Help</h1>
+    <p class="lead">How the module connects your Shopify store to Odoo, in plain words. Pick a topic below, or press <kbd>/</kbd> to search. Prefer paper? <a href="shopify-odoo-connector-guide.pdf" download>Download the guide as a PDF</a>.</p>
+    <p class="print-toc lead">User guide for Odoo 16, 17, 18, 19 and 20, by Techmarbles. Support: support@techmarbles.com. Online version with search: see the module's Apps Store page.</p>
+    <div class="print-toc"><h2>Contents</h2><ol><li>Getting started</li><li>Buying, licence &amp; updates</li><li>Product sync</li><li>Inventory sync</li><li>Order sync</li><li>Invoices, payments &amp; refunds</li><li>Fulfillment &amp; deliveries</li><li>Customer sync</li><li>Taxes &amp; pricelists</li><li>Several stores &amp; companies</li><li>Shopify permissions</li><li>Dashboard</li><li>Monitoring &amp; data checks</li><li>Troubleshooting</li><li>Before you go live</li><li>FAQ</li><li>Security &amp; privacy</li><li>Release notes</li></ol></div>
+    <div class="cards">
+        <a class="card" href="#getting-started"><span class="n">01</span><span class="t">Getting started</span><span class="d">Install the module, connect your Shopify store and run your first sync.</span></a>
+        <a class="card" href="#licence"><span class="n">02</span><span class="t">Buying, licence &amp; updates</span><span class="d">Where to buy, what the price covers, Odoo versions and updates.</span></a>
+        <a class="card" href="#products"><span class="n">03</span><span class="t">Product sync</span><span class="d">Products, variants, prices, images, tags and collections, in either direction.</span></a>
+        <a class="card" href="#inventory"><span class="n">04</span><span class="t">Inventory sync</span><span class="d">Stock per location, on a schedule or in real time.</span></a>
+        <a class="card" href="#orders"><span class="n">05</span><span class="t">Order sync</span><span class="d">Shopify orders as Odoo sale orders: lines, discounts, shipping, edits and cancellations.</span></a>
+        <a class="card" href="#accounting"><span class="n">06</span><span class="t">Invoices, payments &amp; refunds</span><span class="d">Invoices, journals, payments, credit notes, returns and statuses back to Shopify.</span></a>
+        <a class="card" href="#fulfillment"><span class="n">07</span><span class="t">Fulfillment &amp; deliveries</span><span class="d">Tracking numbers to Shopify, and Shopify fulfillments into Odoo deliveries.</span></a>
+        <a class="card" href="#customers"><span class="n">08</span><span class="t">Customer sync</span><span class="d">Contacts, addresses, tags and notes, in either direction.</span></a>
+        <a class="card" href="#taxes"><span class="n">09</span><span class="t">Taxes &amp; pricelists</span><span class="d">Tax modes, tax mapping, rounding, pricelists and market catalogs.</span></a>
+        <a class="card" href="#multi"><span class="n">10</span><span class="t">Several stores &amp; companies</span><span class="d">More than one store, company, warehouse or currency.</span></a>
+        <a class="card" href="#permissions"><span class="n">11</span><span class="t">Shopify permissions</span><span class="d">The access scopes the module needs, and the optional ones.</span></a>
+        <a class="card" href="#dashboard"><span class="n">12</span><span class="t">Dashboard</span><span class="d">Sync status, figures, the daily chart and the latest orders.</span></a>
+        <a class="card" href="#monitoring"><span class="n">13</span><span class="t">Monitoring &amp; data checks</span><span class="d">Not Synced, Skipped Orders, Sync Log and the data checks.</span></a>
+        <a class="card" href="#troubleshooting"><span class="n">14</span><span class="t">Troubleshooting</span><span class="d">The usual problems, what causes them and how to fix them.</span></a>
+        <a class="card" href="#go-live"><span class="n">15</span><span class="t">Before you go live</span><span class="d">A checklist for the day you switch the sync on.</span></a>
+        <a class="card" href="#faq"><span class="n">16</span><span class="t">FAQ</span><span class="d">Short answers to the questions we hear most.</span></a>
+        <a class="card" href="#privacy"><span class="n">17</span><span class="t">Security &amp; privacy</span><span class="d">What the module reads and stores, who can see it, and uninstalling.</span></a>
+        <a class="card" href="#release-notes"><span class="n">18</span><span class="t">Release notes</span><span class="d">What changed in each version.</span></a>
+    </div>
+</div>
+
+<section class="topic-sec" id="getting-started" data-group="START">
+<div class="topic-head"><span class="num">01</span><span class="tag">START</span></div>
+<h1>Getting started</h1>
+<div class="read"></div>
+<p class="intro">This topic takes you from installing the module to your first working sync. It explains the words the module uses, what you need in Odoo and Shopify, the three ways to connect a store, and where to turn on each automatic sync.</p>
+
+<h2>What the module does</h2>
+<p>Shopify Odoo Connector (TM) is an Odoo module. It runs inside your own Odoo and talks straight to Shopify's Admin API. No server sits in between, so your data goes from Shopify to your Odoo and back, and nowhere else.</p>
+<p>It can:</p>
+<ul>
+    <li>Import Shopify orders as Odoo sale orders, with the customer, lines, discounts, shipping, taxes, duties and tips.</li>
+    <li>Create invoices and payments, and turn Shopify refunds into credit notes and returns.</li>
+    <li>Send deliveries back to Shopify as fulfillments with the carrier and tracking number, and the other way round.</li>
+    <li>Sync products, variants, prices, costs, images, tags and categories, in the direction you choose.</li>
+    <li>Keep stock levels the same, per location, on a schedule or in real time.</li>
+    <li>Sync customers with their addresses, tags, note and tax ID.</li>
+    <li>Send paid, cancelled and refunded statuses from Odoo to Shopify.</li>
+    <li>Show it all on a dashboard, with a list of records that did not sync and a button to retry them.</li>
+</ul>
+<p>Each part has its own settings and its own switch on the store form. Nothing syncs on a schedule until you turn it on.</p>
+
+<h2>Key words</h2>
+<div class="tbl"><table>
+<tr><th>Word</th><th>What it means</th></tr>
+<tr><td>Store</td><td>One Shopify shop connected to Odoo. You set it up in <span class="path">Shopify Odoo Connector (TM) &gt; Configuration &gt; Stores</span>. You can connect several.</td></tr>
+<tr><td>Shop domain</td><td>The shop's <code>myshopify.com</code> address, for example <code>my-store.myshopify.com</code>. Shopify shows it in <span class="path">Settings &gt; Domains</span>.</td></tr>
+<tr><td>Access token</td><td>A secret code from Shopify that lets Odoo use your shop's Admin API. Custom app tokens start with <code>shpat_</code>.</td></tr>
+<tr><td>Sync direction</td><td>Which way data flows. <em>Shopify → Odoo</em> means Shopify is the source and Odoo is updated. Products, stock and customers each have their own direction. Orders always come from Shopify.</td></tr>
+<tr><td>Product matching</td><td>How the module knows that a Shopify variant and an Odoo product are the same item: by SKU (the Odoo Internal Reference) or by barcode.</td></tr>
+<tr><td>Location mapping</td><td>Pairs each Shopify location with one or more Odoo stock locations, so stock is synced per location.</td></tr>
+<tr><td>Manual sync</td><td>A sync you start with a button on the store, such as <em>Sync Orders</em> or <em>Export Stock</em>. Buttons work whether automatic sync is on or off.</td></tr>
+<tr><td>Automatic sync</td><td>A sync that runs on its own, at the frequency you pick. Odoo's scheduler checks every 5 minutes which syncs are due.</td></tr>
+<tr><td>Real-time stock</td><td>Stock sent to Shopify within seconds of a stock move in Odoo, instead of at the next scheduled run.</td></tr>
+<tr><td>Not Synced</td><td>The list of orders and products that failed, with the error and a <em>Retry</em> button.</td></tr>
+<tr><td>Skipped order</td><td>A Shopify order your filters left out on purpose (start date, status or tag). It is listed so you can import it anyway.</td></tr>
+</table></div>
+
+<h2>Before you start</h2>
+<p><strong>Odoo:</strong></p>
+<ul>
+    <li>Odoo 16, 17, 18, 19 or 20, Community or Enterprise. Buy the module for the version you run.</li>
+    <li>Odoo on your own server or on Odoo.sh. Odoo Online (the odoo.com SaaS) does not run third-party modules.</li>
+    <li>An Odoo administrator to install the module, and a user with the <em>Sales: Administrator</em> right to configure stores. Shopify credentials are only shown to Settings administrators.</li>
+</ul>
+<p><strong>Odoo apps</strong>, installed for you with the module:</p>
+<div class="tbl"><table>
+<tr><th>Odoo app</th><th>Needed for</th></tr>
+<tr><td>Sales</td><td>Sale orders from Shopify orders.</td></tr>
+<tr><td>Inventory</td><td>Stock, warehouses, locations, deliveries and returns.</td></tr>
+<tr><td>Invoicing (or Accounting)</td><td>Invoices, payments, journals, taxes and credit notes.</td></tr>
+<tr><td>Delivery</td><td>Carriers and tracking numbers on deliveries.</td></tr>
+</table></div>
+<p><strong>Shopify:</strong></p>
+<ul>
+    <li>A Shopify store on any plan.</li>
+    <li>Permission to create an app for the store: the store owner, or a staff account allowed to develop apps.</li>
+</ul>
+<div class="note"><div class="h">Good to know</div><p>Try the module on a copy of your Odoo database first. Every import can be limited by date or tag, so a first test touches only a few records.</p></div>
+
+<h2>Install the module</h2>
+<ol class="steps">
+    <li>Buy <strong>Shopify Odoo Connector (TM)</strong> on the Odoo Apps Store for your Odoo version and download the zip file.</li>
+    <li>Unzip it into a folder of your Odoo addons path. You get a folder called <code>tm_shopify_connector</code>. On Odoo.sh, add that folder to your repository and push.</li>
+    <li>Restart Odoo.</li>
+    <li>In Odoo, open <span class="path">Apps</span>, click <em>Update Apps List</em> (developer mode), search for <em>Shopify</em> and click <em>Activate</em>.</li>
+    <li>A new <span class="path">Shopify Odoo Connector (TM)</span> menu appears on the home screen.</li>
+</ol>
+<div class="note"><div class="h">Good to know</div><p>The module needs no extra Python package and no outside service. Your Odoo must be able to reach <code>*.myshopify.com</code> over HTTPS.</p></div>
+
+<h2>Connect your Shopify store</h2>
+<p>Open <span class="path">Configuration &gt; Stores</span>, click <em>New</em>, give the store a name and pick one of three ways to connect.</p>
+<div class="tbl"><table>
+<tr><th>Connection method</th><th>When to use it</th></tr>
+<tr><td>Admin API access token (recommended)</td><td>You create a custom app in your own Shopify admin and paste its token. Nothing is published, and nothing goes through a third party.</td></tr>
+<tr><td>Client ID and secret</td><td>You created an app in the Shopify Dev Dashboard and installed it on this store. Odoo requests and renews its own access token every day.</td></tr>
+<tr><td>Your own Shopify app (OAuth)</td><td>An app you or your agency own. You approve it on Shopify's install page and the token comes straight to Odoo.</td></tr>
+</table></div>
+
+<h3>Admin API access token</h3>
+<ol class="steps">
+    <li>In your Shopify admin, open <span class="path">Settings &gt; Apps and sales channels &gt; Develop apps</span> and create an app. It is private to your store.</li>
+    <li>Under <span class="path">Configuration &gt; Admin API scopes</span>, tick the scopes listed in <a href="#permissions">Shopify permissions</a>.</li>
+    <li>Click <em>Install app</em>, then reveal and copy the <strong>Admin API access token</strong>. Shopify shows it only once.</li>
+    <li>In Odoo, choose <em>Admin API access token</em>, paste the token, fill in the <strong>Shop Domain</strong> and save.</li>
+    <li>Click <strong>Test Connection</strong>.</li>
+</ol>
+<div class="note"><div class="h">Good to know</div><p>If your Shopify admin no longer lets you create apps under <em>Develop apps</em>, create the app in the Shopify Dev Dashboard and use <em>Client ID and secret</em> instead.</p></div>
+
+<h3>Client ID and secret</h3>
+<ol class="steps">
+    <li>In the Shopify Dev Dashboard, create an app with the scopes in <a href="#permissions">Shopify permissions</a> and install it on this store. The store must belong to the same organization.</li>
+    <li>In Odoo, choose <em>Client ID and secret</em>, paste the app's <strong>Client ID</strong> and <strong>Client secret</strong>, fill in the <strong>Shop Domain</strong> and save.</li>
+    <li>Click <strong>Test Connection</strong>. Odoo gets an access token and renews it every day; you do nothing more.</li>
+</ol>
+
+<h3>Your own Shopify app (OAuth)</h3>
+<ol class="steps">
+    <li>In Odoo, choose <em>Your own Shopify app</em> and save. Copy the <strong>Redirect URL</strong> the form shows.</li>
+    <li>In your app's settings (Dev Dashboard or Partner Dashboard), add that URL to the allowed redirection URLs and give the app the scopes in <a href="#permissions">Shopify permissions</a>.</li>
+    <li>Paste the app's <strong>Client ID</strong> and <strong>Client secret</strong> in Odoo, fill in the <strong>Shop Domain</strong> and save.</li>
+    <li>Click <strong>Authorize on Shopify</strong> and approve. Shopify sends you back to Odoo, connected.</li>
+</ol>
+<div class="warn"><div class="h">Important</div><p>For OAuth, Odoo's <em>web.base.url</em> must be the public address Shopify can reach (for example <code>https://erp.mycompany.com</code>). A <code>localhost</code> address cannot receive Shopify's answer.</p></div>
+
+<h3>What Test Connection does</h3>
+<p>It logs in to Shopify and reads your shop: its name, currency, whether its prices include tax, and its locations. When it works, the store shows <span class="pill">Connected</span> and its Shopify locations appear on the <em>Inventory</em> tab. When it fails, the store shows <span class="pill plum">Error</span> and the message says why: a wrong shop domain, a wrong or revoked token, or a missing scope.</p>
+
+<h3>Store defaults</h3>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Company</td><td>The Odoo company of the store's orders, invoices and stock. Shown when you have several companies.</td></tr>
+<tr><td>Warehouse</td><td>The warehouse that ships Shopify orders. Also the default stock source for the first location.</td></tr>
+<tr><td>Sales Team</td><td>Set on imported sale orders.</td></tr>
+<tr><td>Salesperson</td><td>Set on imported sale orders.</td></tr>
+</table></div>
+
+<h2>Your first sync</h2>
+<p>Do it in this order. Each step relies on the one before.</p>
+<ol class="steps">
+    <li><strong>Products.</strong> On the <em>Products</em> tab, choose how to match products (SKU or barcode). If Shopify holds your catalogue, set the product direction to <em>Shopify → Odoo</em> and click <em>Import Products</em>. If Odoo holds it, set <em>Odoo → Shopify</em> and click <em>Export Products</em>. See <a href="#products">Product sync</a>.</li>
+    <li><strong>Check the links.</strong> Open <span class="path">Products</span> in the module menu: each Shopify variant shows its Odoo product. <span class="path">Monitoring &gt; Data Checks</span> lists products without SKU or barcode and duplicates.</li>
+    <li><strong>Stock.</strong> On the <em>Inventory</em> tab, map your Shopify locations to Odoo locations, choose the direction and click <em>Export Stock</em> or <em>Import Stock</em> once. See <a href="#inventory">Inventory sync</a>.</li>
+    <li><strong>Orders.</strong> On the <em>Orders</em> tab, set <em>Import Orders Since</em> to today, choose your invoicing options and click <em>Sync Orders</em>. Place a test order in Shopify and click <em>Sync Orders</em> again. See <a href="#orders">Order sync</a>.</li>
+    <li><strong>Customers.</strong> Only if you want customers synced on their own: customers on orders are created with the order anyway. See <a href="#customers">Customer sync</a>.</li>
+</ol>
+<div class="note"><div class="h">Good to know</div><p><em>Import Products</em>, <em>Import Orders by Date</em> and <em>Import Customers</em> open a small window where you choose <em>All</em> or <em>Updated between</em> two dates. Use a short range for your first test.</p></div>
+
+<h2>Turn on automatic syncs</h2>
+<p>All automatic syncs are on the store's <em>Auto Sync</em> tab. Tick the switch, pick a frequency and save. The next run time is shown under each one.</p>
+<div class="tbl"><table>
+<tr><th>What</th><th>Switch</th><th>Frequencies</th></tr>
+<tr><td>Orders, Shopify → Odoo</td><td>Auto Sync Orders</td><td>Every 5, 15 or 30 minutes, every 1, 2, 6 or 12 hours, every day or every week.</td></tr>
+<tr><td>Stock</td><td>Auto Sync Stock</td><td>Same choices as orders. Real-time stock (Odoo → Shopify) is on the <em>Inventory</em> tab.</td></tr>
+<tr><td>Products</td><td>Auto Sync Products</td><td>Every 6 or 12 hours, every day or every week.</td></tr>
+<tr><td>Customers</td><td>Auto Sync Customers</td><td>Every 1, 2, 6 or 12 hours, every day or every week.</td></tr>
+<tr><td>Fulfillment retries, Odoo → Shopify</td><td>Auto Retry Fulfillments</td><td>Every 30 minutes, every 1, 2, 6 or 12 hours, every day or every week.</td></tr>
+</table></div>
+<p>Fulfillments, paid statuses, cancellations and refunds from Odoo are sent at the moment they happen in Odoo. The retry job only resends the ones Shopify could not receive.</p>
+<figure><img src="assets/img/screenshot_5_store_auto_sync.jpg" alt="The Auto Sync tab of a store" loading="lazy"><figcaption>The Auto Sync tab: each sync with its switch, frequency and next run.</figcaption></figure>
+
+<h2>How the module is laid out</h2>
+<div class="tbl"><table>
+<tr><th>Menu</th><th>What you do there</th></tr>
+<tr><td>Dashboard</td><td>Each store's connection and sync jobs, order and stock figures, a daily chart, recent orders and what did not sync. See <a href="#dashboard">Dashboard</a>.</td></tr>
+<tr><td>Orders</td><td>Every sale order that came from Shopify, with its Shopify payment and fulfillment status.</td></tr>
+<tr><td>Products</td><td>Every Shopify variant, its Odoo product, Shopify price, Odoo on hand and available quantities, and its stock switch.</td></tr>
+<tr><td>Customers</td><td>Every Shopify customer linked to an Odoo contact.</td></tr>
+<tr><td>Monitoring</td><td>Not Synced, Skipped Orders, Sync Log and Data Checks. See <a href="#monitoring">Monitoring &amp; data checks</a>.</td></tr>
+<tr><td>Configuration</td><td>Stores and Locations. Sales administrators only.</td></tr>
+</table></div>
+<p>The store form has a button bar at the top for every manual sync, and six tabs:</p>
+<div class="tbl"><table>
+<tr><th>Tab</th><th>What it holds</th></tr>
+<tr><td>Auto Sync</td><td>Directions and frequencies of orders, stock, products, customers and fulfillment retries.</td></tr>
+<tr><td>Orders</td><td>Which orders to import, sale order options, lines, taxes, tag rules, tax and shipping mapping, invoicing, journal rules, statuses to Shopify, order edits, refunds and fulfillment.</td></tr>
+<tr><td>Customers</td><td>Customer sync options in each direction.</td></tr>
+<tr><td>Products</td><td>Matching, images, import and export options, and market catalogs.</td></tr>
+<tr><td>Inventory</td><td>Location mapping, stock export and import options, and the Shopify locations.</td></tr>
+<tr><td>Advanced</td><td>The scopes Shopify granted and the token's expiry. Settings administrators only.</td></tr>
+</table></div>
+
+<h2>Disconnect or change the store</h2>
+<ul>
+    <li><strong>Disconnect</strong> on the store form sets it to <em>Not connected</em> and stops its scheduled syncs. Tokens Odoo obtained itself (Client ID and secret, OAuth) are forgotten; a pasted access token stays in the field so you can reconnect. Orders, products and contacts already in Odoo stay.</li>
+    <li>To cut Shopify access completely, uninstall the app in <span class="path">Shopify admin &gt; Apps</span>. Its token stops working at once.</li>
+    <li>To use another token or app, disconnect, choose the method again, enter the new credentials and click <strong>Test Connection</strong>.</li>
+    <li>To pause one store without losing its settings, untick its automatic syncs, or archive it.</li>
+</ul>
+<div class="warn"><div class="h">Important</div><p>Do not point an existing store at a different Shopify shop. Its links (products, customers, locations) belong to the first shop. Create a new store for the other shop instead.</p></div>
+
+<h2>Troubleshooting</h2>
+<div class="tbl"><table>
+<tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>Test Connection: invalid token or 401</td><td>The token was revoked or mistyped. Copy it again from Shopify (or reinstall the custom app to get a new one) and paste it.</td></tr>
+<tr><td>Test Connection: shop not found</td><td>Use the <code>myshopify.com</code> address, not your own domain. The store name alone also works.</td></tr>
+<tr><td>Access denied for a field or query</td><td>A scope is missing. Add it in the Shopify app, install the new version (or click <em>Authorize on Shopify</em> again) and test again. See <a href="#permissions">Shopify permissions</a>.</td></tr>
+<tr><td>Nothing happens on schedule</td><td>Check the switch on the <em>Auto Sync</em> tab and that Odoo's scheduled actions run (on your own server, Odoo needs at least one cron worker).</td></tr>
+</table></div>
+<p>More cases are in <a href="#troubleshooting">Troubleshooting</a>.</p>
+
+<h2>Need help</h2>
+<p>Write to <a href="mailto:support@techmarbles.com">support@techmarbles.com</a> with your Odoo version, the store's name and, if you can, the message from <span class="path">Monitoring &gt; Sync Log</span>. Bug fixes and configuration help are included with the purchase.</p>
+</section>
+
+<section class="topic-sec" id="licence" data-group="START">
+<div class="topic-head"><span class="num">02</span><span class="tag">START</span></div>
+<h1>Buying, licence &amp; updates</h1>
+<div class="read"></div>
+<p class="intro">Where to buy the module, what the price covers, which Odoo versions it runs on and how updates reach you.</p>
+
+<h2>What it does</h2>
+<p>Shopify Odoo Connector (TM) is a paid module on the Odoo Apps Store, published by Techmarbles. You pay once per Odoo version. There is no monthly fee and no per-order charge, and no Techmarbles server sits between Shopify and your Odoo.</p>
+
+<h2>Price and what it includes</h2>
+<div class="tbl"><table>
+<tr><th>Item</th><th>Details</th></tr>
+<tr><td>Price</td><td>390 USD, paid once on the Odoo Apps Store for one Odoo version.</td></tr>
+<tr><td>Licence</td><td>Odoo Proprietary License v1.0 (OPL-1). You may use and adapt the module for your business; you may not resell or publish it.</td></tr>
+<tr><td>Stores</td><td>Connect as many Shopify stores as you like to the same Odoo.</td></tr>
+<tr><td>Support</td><td>Bug fixes and configuration help by email at <a href="mailto:support@techmarbles.com">support@techmarbles.com</a>.</td></tr>
+<tr><td>Updates</td><td>New versions for the Odoo version you bought, downloaded from the Apps Store.</td></tr>
+</table></div>
+
+<h2>Odoo versions</h2>
+<div class="tbl"><table>
+<tr><th>Odoo</th><th>Editions</th><th>Hosting</th></tr>
+<tr><td>16, 17, 18, 19, 20</td><td>Community and Enterprise</td><td>Your own server or Odoo.sh. Not Odoo Online (odoo.com SaaS), which does not run third-party modules.</td></tr>
+</table></div>
+<p>Every version has the same features. The module's version number starts with the Odoo version, for example <code>19.0.1.1.9</code> for Odoo 19.</p>
+<div class="note"><div class="h">Good to know</div><p>Moving to a newer Odoo version? Buy the module for the new version on the Apps Store. Odoo's upgrade service moves your data; the module's stores, links and settings come along.</p></div>
+
+<h2>Update the module</h2>
+<ol class="steps">
+    <li>Download the new version from your Apps Store purchases.</li>
+    <li>Replace the <code>tm_shopify_connector</code> folder in your addons path with the new one (on Odoo.sh, commit and push it).</li>
+    <li>Restart Odoo.</li>
+    <li>In <span class="path">Apps</span>, open the module and click <em>Upgrade</em> (or start Odoo with <code>-u tm_shopify_connector</code>).</li>
+</ol>
+<div class="warn"><div class="h">Important</div><p>Update on a copy of your database first if you changed the module's code. Your stores and settings are kept by the upgrade.</p></div>
+
+<h2>Troubleshooting</h2>
+<div class="tbl"><table>
+<tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>The module is not in the Apps list</td><td>Check the folder is in a directory of your <code>addons_path</code>, restart Odoo and click <em>Update Apps List</em> in developer mode.</td></tr>
+<tr><td>"Module not installable" or a version error</td><td>The zip is for another Odoo version. Download the one that matches your Odoo.</td></tr>
+</table></div>
+</section>
+
+<section class="topic-sec" id="products" data-group="CATALOG">
+<div class="topic-head"><span class="num">03</span><span class="tag">CATALOG</span></div>
+<h1>Product sync</h1>
+<div class="read"></div>
+<p class="intro">Products, variants, prices, costs, images, tags and categories between Shopify and Odoo. One side is the master: you choose which.</p>
+
+<h2>What it does</h2>
+<ul>
+    <li><strong>Shopify → Odoo:</strong> Shopify products are imported and linked to Odoo products. Missing ones can be created, with their variants, SKU, barcode, price, weight and category. Existing ones can be updated.</li>
+    <li><strong>Odoo → Shopify:</strong> Odoo is the master. Its products are created and updated in Shopify, including title, description, options, variants, SKU, barcode, price, cost, weight, tags and images.</li>
+</ul>
+<p>Either way, every Shopify variant is linked to one Odoo product. The link is what stock, prices and orders use afterwards. You see all links in the module's <span class="path">Products</span> menu.</p>
+
+<h2>Before you start</h2>
+<ul>
+    <li>Give every product a unique SKU (Odoo's <em>Internal Reference</em>) or a unique barcode, on both sides. Products are matched on one of the two.</li>
+    <li>Check <span class="path">Monitoring &gt; Data Checks</span> for products without SKU, without barcode, and duplicate SKUs, in Odoo and in Shopify. Fix these first.</li>
+    <li>Products created in Odoo from Shopify are storable when Shopify tracks their inventory, consumable otherwise.</li>
+</ul>
+
+<h2>How to set it up</h2>
+<ol class="steps">
+    <li>On the store's <em>Products</em> tab, set <strong>Match Products On</strong> to SKU or barcode.</li>
+    <li>On the <em>Auto Sync</em> tab, set <strong>Product Sync Direction</strong>.</li>
+    <li>Set the import or export options below and save.</li>
+    <li>Click <strong>Import Products</strong> or <strong>Export Products</strong> on the store. Choose <em>All</em>, or <em>Updated between</em> two dates.</li>
+    <li>Check <span class="path">Products</span>: each Shopify variant shows its Odoo product.</li>
+    <li>When it looks right, tick <strong>Auto Sync Products</strong> on the <em>Auto Sync</em> tab.</li>
+</ol>
+<div class="note"><div class="h">Good to know</div><p>If both sides already have the same products, untick <strong>Create Missing Products</strong> (import) or set <strong>Products to Export</strong> to <em>Only products already in Shopify</em> (export) for the first run. The module then only links what matches and creates nothing.</p></div>
+
+<h2>Settings explained</h2>
+<h3>Matching</h3>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Match Products On</td><td><em>SKU = Internal Reference</em> or <em>Barcode</em>: how Shopify variants are linked to existing Odoo products. Orders use the same rule.</td></tr>
+<tr><td>Images</td><td><em>No images</em>, <em>Main image</em> or <em>All images</em>: copied when a product is created on the other side, and by the image buttons. Extra images in Odoo need the eCommerce app (product gallery).</td></tr>
+<tr><td>Create Missing Products</td><td>Product import: create the Odoo product when a Shopify variant matches none. Order sync has its own option on the <em>Orders</em> tab.</td></tr>
+</table></div>
+
+<h3>Import from Shopify</h3>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Update Sales Prices</td><td>Copy Shopify prices onto products that already exist in Odoo.</td></tr>
+<tr><td>Update Titles</td><td>Copy Shopify titles onto existing Odoo products.</td></tr>
+<tr><td>Update Descriptions</td><td>Copy Shopify descriptions onto existing Odoo products.</td></tr>
+<tr><td>Update Tags</td><td>Add Shopify tags to existing Odoo products. Tags are never removed.</td></tr>
+<tr><td>Update Costs</td><td>Copy Shopify's cost per item onto existing Odoo products.</td></tr>
+<tr><td>Write Shopify Prices to Pricelist</td><td>Also write Shopify's variant prices, as fixed prices, into this pricelist.</td></tr>
+<tr><td>Category of New Products</td><td><em>Default category</em>, <em>Shopify product type</em> or <em>First Shopify collection</em>. Missing categories are created.</td></tr>
+<tr><td>Import Draft Products</td><td>Also import products whose Shopify status is Draft.</td></tr>
+<tr><td>Only Shopify Products Tagged</td><td>Comma-separated Shopify product tags. Empty: all products.</td></tr>
+<tr><td>Only Shopify Collections</td><td>Comma-separated collection titles. Empty: all collections.</td></tr>
+</table></div>
+
+<h3>Export to Shopify</h3>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Products to Export</td><td><em>Every product that can be sold</em>: Odoo goods that can be sold are created in Shopify when missing; a Shopify product with the same SKU or barcode is linked instead of duplicated. <em>Only products already in Shopify</em>: update the linked ones, never create.</td></tr>
+<tr><td>Only Categories</td><td>Export only products of these categories and their sub-categories.</td></tr>
+<tr><td>New Products in Shopify</td><td><em>Draft</em> or <em>Active</em>. Draft lets you review new products before they are sold.</td></tr>
+<tr><td>Update Titles, Descriptions, Prices, Tags, Costs</td><td>What is sent to products that are already in Shopify. Costs go to Shopify's cost per item.</td></tr>
+<tr><td>Categories as Collections</td><td>Each Odoo category is a Shopify collection (found by title or created) and exported products join it. Products are never removed from other collections.</td></tr>
+<tr><td>Publish New Products</td><td>Products created in Shopify are published to every sales channel (Online Store, Shop, Point of Sale...). Off: created but not published. Needs the publications permission (see <a href="#permissions">Shopify permissions</a>).</td></tr>
+<tr><td>Only Products Tagged</td><td>Export only Odoo products with one of these tags.</td></tr>
+<tr><td>Only Products in Stock</td><td>Skip products with no stock in Odoo.</td></tr>
+<tr><td>Prices From Pricelist</td><td>Shopify prices come from this pricelist instead of the sales price, converted to the shop's currency.</td></tr>
+</table></div>
+<p>Market catalogs (prices per market) are explained in <a href="#taxes">Taxes &amp; pricelists</a>.</p>
+<figure><img src="assets/img/screenshot_6_store_products_export.jpg" alt="Product export settings" loading="lazy"><figcaption>The Products tab: matching, import and export options.</figcaption></figure>
+
+<h2>Buttons</h2>
+<div class="tbl"><table>
+<tr><th>Button</th><th>What it does</th></tr>
+<tr><td>Import Products</td><td>Shopify → Odoo, all products or those updated between two dates.</td></tr>
+<tr><td>Export Products</td><td>Odoo → Shopify, all products or those changed between two dates.</td></tr>
+<tr><td>Sync Prices</td><td>Prices only, in the product direction. Faster than a full product sync.</td></tr>
+<tr><td>Import Images / Export Images</td><td>Fill images on products that have none on the receiving side, so nothing is duplicated.</td></tr>
+</table></div>
+
+<h2>How often it runs</h2>
+<p>With <strong>Auto Sync Products</strong> on: every 6 or 12 hours, every day or every week. Each run handles only the products changed since the last one. The buttons always work, whatever the schedule.</p>
+
+<h2>The Products list</h2>
+<p><span class="path">Products</span> in the module menu lists every Shopify variant with its store, Shopify product and variant, SKU, barcode, Odoo product, Shopify price, Odoo <em>On Hand</em> and <em>Available</em> quantities, its <em>Sync Stock</em> switch and the last quantity sent. <em>View</em> opens the Odoo product. You can sort by the quantities.</p>
+<p>On an Odoo product, the <em>Shopify</em> tab shows its Shopify variants.</p>
+
+<h2>What is synced / not synced</h2>
+<div class="tbl"><table>
+<tr><th>Synced</th><th>Not synced</th></tr>
+<tr><td>Title, description, options and variants, SKU, barcode, price, cost, weight, tags, product type or collection as category, images, draft or active status</td><td>Metafields, SEO fields, Shopify product reviews, gift cards, bundles made in Shopify apps. Variant deletions are not mirrored: archive on both sides.</td></tr>
+</table></div>
+
+<h2>Limits</h2>
+<ul>
+    <li>Shopify limits the number of options and variants per product. An Odoo product with more variants than Shopify accepts goes to Not Synced with Shopify's message.</li>
+    <li>Large catalogues are paged automatically; the first full import of thousands of products takes several minutes.</li>
+</ul>
+
+<h2>Good to know</h2>
+<ul>
+    <li>Only one side should be the master. If you change the direction, run one full sync in the new direction.</li>
+    <li>Prices are sent in the shop's currency. For prices per market or currency, use market catalogs.</li>
+</ul>
+
+<h2>Troubleshooting</h2>
+<div class="tbl"><table>
+<tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>Duplicated products after an import</td><td>The SKU or barcode did not match. Fix them, archive the duplicates and import again. Check <span class="path">Data Checks</span>.</td></tr>
+<tr><td>A product is in Not Synced</td><td>Open it in <span class="path">Monitoring &gt; Not Synced</span>, read the error, fix the product and click <em>Retry</em>.</td></tr>
+<tr><td>New products are not visible in the online store</td><td>They were created as Draft, or not published. Set <em>New Products in Shopify</em> to Active and tick <em>Publish New Products</em>, with the publications permission.</td></tr>
+<tr><td>Images missing</td><td>Check the <em>Images</em> setting, then click <em>Import Images</em> or <em>Export Images</em>. Products that already have images are left alone.</td></tr>
+</table></div>
+</section>
+
+<section class="topic-sec" id="inventory" data-group="CATALOG">
+<div class="topic-head"><span class="num">04</span><span class="tag">CATALOG</span></div>
+<h1>Inventory sync</h1>
+<div class="read"></div>
+<p class="intro">Keep stock levels the same in Shopify and Odoo, per location, on a schedule or in real time.</p>
+
+<h2>What it does</h2>
+<ul>
+    <li><strong>Odoo → Shopify:</strong> Odoo's quantities are sent to Shopify, per Shopify location. With real-time stock, every stock move in Odoo is sent within seconds.</li>
+    <li><strong>Shopify → Odoo:</strong> Shopify is the source of truth. Odoo's on hand quantities are set to Shopify's, in the first Odoo location mapped to each Shopify location.</li>
+</ul>
+
+<h2>Before you start</h2>
+<ul>
+    <li>Link your products first (<a href="#products">Product sync</a>). Stock only moves for Shopify variants linked to an Odoo product.</li>
+    <li>Products must be storable in Odoo, and their Shopify variant must track inventory.</li>
+    <li>Click <strong>Test Connection</strong> (or <em>Refresh Locations</em>) so the store knows your Shopify locations.</li>
+</ul>
+
+<h2>How to set it up</h2>
+<ol class="steps">
+    <li>On the <em>Auto Sync</em> tab, choose the <strong>Stock Sync Direction</strong>.</li>
+    <li>On the <em>Inventory</em> tab, decide on location mapping (below) and pick the Odoo locations of each Shopify location.</li>
+    <li>Choose the stock source and options, then save.</li>
+    <li>Click <strong>Export Stock</strong> (Odoo → Shopify) or <strong>Import Stock</strong> (Shopify → Odoo) once, and check a few products in Shopify.</li>
+    <li>Tick <strong>Auto Sync Stock</strong>, and <strong>Real-Time Stock</strong> if Odoo is the source.</li>
+</ol>
+
+<h2>Locations</h2>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Inventory Location Mapping</td><td>On: each Shopify location is synced with the Odoo locations mapped to it. Off: one Shopify location holds the stock of all your warehouses, and stock imported from Shopify goes to the store's warehouse.</td></tr>
+<tr><td>Default Shopify Location</td><td>With mapping off: the Shopify location that is synced. Empty: the first location that fulfills online orders.</td></tr>
+</table></div>
+<p>The <strong>Locations</strong> table lists your Shopify locations:</p>
+<div class="tbl"><table>
+<tr><th>Column</th><th>What it means</th></tr>
+<tr><td>Name, Fulfills Online Orders</td><td>As in Shopify.</td></tr>
+<tr><td>Odoo Locations</td><td>The stock of these locations and their sub-locations is added up and sent to this Shopify location. Stock imported from Shopify goes to the first one.</td></tr>
+<tr><td>Sync Stock</td><td>Sync this location's stock, in the store's direction. Untick a location to leave it alone.</td></tr>
+<tr><td>Last Stock Sync</td><td>When its stock was last synced.</td></tr>
+</table></div>
+<figure><img src="assets/img/screenshot_7_store_inventory.jpg" alt="Location mapping and stock settings" loading="lazy"><figcaption>The Inventory tab: location mapping, stock export options and the Shopify locations.</figcaption></figure>
+
+<h2>Settings explained</h2>
+<h3>Stock export (Odoo → Shopify)</h3>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Real-Time Stock</td><td>A stock change in Odoo (delivery, receipt, adjustment, reservation) is sent to Shopify within seconds, for the products it touches. The scheduled stock sync keeps running as a safety net.</td></tr>
+<tr><td>Stock Source</td><td><em>Free quantity → Shopify 'Available'</em>: on hand minus what is reserved for orders. <em>On hand quantity → Shopify 'On hand'</em>: Shopify then deducts what its unfulfilled orders commit. <em>Forecasted quantity → Shopify 'Available'</em>: on hand plus incoming minus outgoing.</td></tr>
+<tr><td>Shopify Field</td><td>Which Shopify quantity receives the number: <em>As above</em>, <em>Available</em> or <em>On hand</em>. It changes where the number goes, not how it is computed.</td></tr>
+<tr><td>Only Stock of Categories</td><td>Send the stock of products of these categories (and sub-categories) only.</td></tr>
+<tr><td>Do Not Sync Zero Stock</td><td>Products at 0 or below are skipped, both ways: the other side keeps its last number.</td></tr>
+</table></div>
+<h3>Stock import (Shopify → Odoo)</h3>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Import Quantity</td><td>Which Shopify quantity becomes Odoo's on hand: <em>On hand</em> or <em>Available</em>.</td></tr>
+</table></div>
+<p>Each Shopify variant also has its own <strong>Sync Stock</strong> switch in the <span class="path">Products</span> list, to leave single products out.</p>
+
+<h2>How often it runs</h2>
+<div class="tbl"><table>
+<tr><th>Sync</th><th>When</th></tr>
+<tr><td>Auto Sync Stock</td><td>Every 5, 15 or 30 minutes, every 1, 2, 6 or 12 hours, every day or every week.</td></tr>
+<tr><td>Real-Time Stock</td><td>Within seconds of a stock move in Odoo (Odoo → Shopify only).</td></tr>
+<tr><td>Export Stock / Import Stock buttons</td><td>When you click them.</td></tr>
+</table></div>
+
+<h2>What is synced / not synced</h2>
+<div class="tbl"><table>
+<tr><th>Synced</th><th>Not synced</th></tr>
+<tr><td>Quantities per Shopify location, for linked variants that track inventory. Kits (bill of materials of type Kit): the quantity Odoo computes from the components.</td><td>Lots and serial numbers, incoming transfers as Shopify "incoming" quantities, Shopify's committed and unavailable states (Shopify manages those itself).</td></tr>
+</table></div>
+
+<h2>Limits</h2>
+<ul>
+    <li>Shopify accepts 250 quantities per call; the module sends larger updates in batches.</li>
+    <li>A product's stock in Shopify can only be set where the variant is stocked at that location.</li>
+</ul>
+
+<h2>Good to know</h2>
+<ul>
+    <li>Use one direction only. Odoo → Shopify is usual when Odoo runs your warehouse.</li>
+    <li>With <em>Free quantity</em>, stock reserved for Odoo deliveries is not offered in Shopify, which avoids overselling.</li>
+    <li>Orders from Shopify reserve stock in Odoo when confirmed, so the free quantity drops at once.</li>
+</ul>
+
+<h2>Troubleshooting</h2>
+<div class="tbl"><table>
+<tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>Stock does not change in Shopify</td><td>Check the variant is linked (Products list), its <em>Sync Stock</em> is on, its location is mapped and synced, and the Odoo product is storable.</td></tr>
+<tr><td>Wrong quantity in Shopify</td><td>Compare <em>On Hand</em> and <em>Available</em> in the Products list with the stock source you chose, and the Odoo locations mapped (sub-locations count too).</td></tr>
+<tr><td>"Inventory item not found"</td><td>The variant was linked without Shopify's inventory item. Import products once to fill it.</td></tr>
+<tr><td>Stock imported into the wrong location</td><td>Imports go to the first Odoo location of each mapped Shopify location. Change the order of the Odoo locations.</td></tr>
+</table></div>
+</section>
+
+<section class="topic-sec" id="orders" data-group="ORDERS &amp; PEOPLE">
+<div class="topic-head"><span class="num">05</span><span class="tag">ORDERS &amp; PEOPLE</span></div>
+<h1>Order sync</h1>
+<div class="read"></div>
+<p class="intro">Each Shopify order becomes an Odoo sale order with the customer, items, discounts, shipping, taxes, duties and tips, so its total matches Shopify's. Edits and cancellations made in Shopify follow.</p>
+
+<h2>What it does</h2>
+<ul>
+    <li>Imports new and updated Shopify orders as sale orders, confirmed or as quotations.</li>
+    <li>Finds or creates the customer, with separate invoice and delivery addresses when they differ.</li>
+    <li>Finds each item's Odoo product by the linked variant, then by SKU or barcode.</li>
+    <li>Applies order edits, cancellations and refunds made in Shopify afterwards.</li>
+    <li>Lists orders your filters left out in <em>Skipped Orders</em>, and orders that failed in <em>Not Synced</em>, with a retry.</li>
+</ul>
+<p>Invoices, payments and refunds are in <a href="#accounting">Invoices, payments &amp; refunds</a>; deliveries and tracking in <a href="#fulfillment">Fulfillment &amp; deliveries</a>.</p>
+
+<h2>Before you start</h2>
+<ul>
+    <li>Link your products (<a href="#products">Product sync</a>), or tick <em>Create Missing Products</em> on the <em>Orders</em> tab.</li>
+    <li>Pick the store's <em>Warehouse</em>, and check your Odoo sales taxes match Shopify's rates (<a href="#taxes">Taxes &amp; pricelists</a>).</li>
+    <li>Set <strong>Import Orders Since</strong>, so old orders are not imported by mistake.</li>
+</ul>
+
+<h2>How to set it up</h2>
+<ol class="steps">
+    <li>On the <em>Orders</em> tab, set <strong>Import Orders Since</strong> and, if you want, the status and tag filters.</li>
+    <li>Choose the sale order options, discount mode, shipping product and tax mode.</li>
+    <li>Choose the invoicing options (<a href="#accounting">next topic</a>) and save.</li>
+    <li>Click <strong>Sync Orders</strong>. To bring in a past period, click <strong>Import Orders by Date</strong> and pick the dates.</li>
+    <li>Open <span class="path">Orders</span> and compare a few orders with Shopify.</li>
+    <li>Tick <strong>Auto Sync Orders</strong> on the <em>Auto Sync</em> tab.</li>
+</ol>
+
+<h2>Which orders sync</h2>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Import Orders Since</td><td>Orders created before this moment are never imported.</td></tr>
+<tr><td>Orders to Import</td><td><em>All orders</em>, <em>Paid orders only</em>, <em>Fulfilled orders only</em>, or <em>Paid and fulfilled orders only</em>. Orders not matching yet are picked up later, once they are paid or fulfilled.</td></tr>
+<tr><td>Only Orders Tagged</td><td>Comma-separated Shopify order tags. Empty: every order.</td></tr>
+</table></div>
+<p>Orders left out are listed in <span class="path">Monitoring &gt; Skipped Orders</span> with the reason: status filter, tag filter, created before the start date, or cancelled in Shopify. See <a href="#monitoring">Monitoring</a>.</p>
+<div class="warn"><div class="h">Important</div><p>Shopify only gives apps the last 60 days of orders unless the app has the <code>read_all_orders</code> permission. To import older orders, add it (see <a href="#permissions">Shopify permissions</a>).</p></div>
+
+<h2>Sale order options</h2>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Auto Confirm Orders</td><td>Confirm imported orders, so Odoo creates the delivery and reserves stock. Off: they stay quotations.</td></tr>
+<tr><td>Create Missing Products</td><td>When an item matches no Odoo product, create it and import the order. Off: the order is not imported and waits in Not Synced until the product exists.</td></tr>
+<tr><td>Use Shopify Order Number</td><td>Name the sale order after the Shopify order (for example <code>#1001</code>) instead of Odoo's sequence. The Shopify number is always on the order, in the <em>Shopify Order</em> field.</td></tr>
+<tr><td>Copy Order Tags</td><td>Copy Shopify order tags onto the sale order.</td></tr>
+<tr><td>Cancel Orders Cancelled in Shopify</td><td>Cancel the sale order when it is cancelled in Shopify, unless it is already delivered.</td></tr>
+<tr><td>Customer for Guest Orders</td><td>Book orders placed without a customer account on this contact. Empty: create a contact from the order's email and address.</td></tr>
+<tr><td>Use Fixed Customer For</td><td><em>Guest orders only</em> or <em>All orders</em>.</td></tr>
+<tr><td>Pricelist</td><td>Which pricelist the order shows. It never changes the prices: lines keep what the customer paid. See <a href="#taxes">Taxes &amp; pricelists</a>.</td></tr>
+</table></div>
+
+<h2>Lines, discounts and shipping</h2>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Discount Mode</td><td><em>Separate discount line</em>: all discounts summed on the discount product, one line per tax. <em>One line per discount code</em>: each Shopify discount (code or title) is its own line. <em>Discount % on the order line</em>: on the product line itself.</td></tr>
+<tr><td>Discount Product</td><td>The product of discount lines (<em>Shopify Discount</em> by default).</td></tr>
+<tr><td>Shipping Product</td><td>The product of shipping lines (<em>Shopify Shipping</em> by default). Shipping mapping can pick another one per shipping method.</td></tr>
+</table></div>
+<p>Other charges come as their own lines: duties on <em>Shopify Duty</em> (one line per HS code and country of origin), tips on <em>Shopify Tip</em>. Items sold in Shopify without a product (custom items) use <em>Shopify Custom Item</em>. These products are created with the module.</p>
+
+<h3>Shipping mapping</h3>
+<p>Per Shopify shipping method (its title or part of it, for example "Express"): the Odoo shipping product of its line and the carrier set on the order.</p>
+
+<h3>Order tag rules</h3>
+<p>Per set of Shopify order tags (comma-separated, any case): the <strong>warehouse</strong> that ships the order and, if you want, a fixed <strong>customer</strong>. A warehouse of another company puts the order in that company. Rules are read from top to bottom; the first match wins.</p>
+
+<h2>Customers on orders</h2>
+<p>For each order, the module uses, in this order:</p>
+<ol class="steps">
+    <li>The customer of a matching order tag rule, or the store's fixed customer.</li>
+    <li>The Odoo contact already linked to the Shopify customer (by customer sync or an earlier order).</li>
+    <li>A contact with the same email, then the same phone number.</li>
+    <li>A new contact, from the order's customer and billing address.</li>
+</ol>
+<p>When the shipping or billing address differs, it is added as a delivery or invoice address under the customer. The customer's own address is not overwritten.</p>
+
+<h2>Order numbering</h2>
+<p>With <em>Use Shopify Order Number</em> on, the sale order is called <code>#1001</code>. Off, it gets Odoo's next number (for example <code>S00042</code>) and the Shopify number is shown in the <em>Shopify Order</em> column and on the <em>Shopify</em> tab. Type <code>#1001</code> in the search bar and choose <em>Shopify Order</em> to find it either way.</p>
+
+<h2>Order editing</h2>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Apply Order Edits</td><td><em>Off</em>, <em>Quotations</em>, or <em>Quotations and confirmed orders</em>. When an order is edited in Shopify (quantities, items added or removed, discounts, shipping), its lines are rebuilt in Odoo. Confirmed orders not delivered yet are cancelled, rebuilt and confirmed again; partly delivered ones are updated in place. Invoiced orders are never changed: the chatter says so.</td></tr>
+</table></div>
+<p><strong>Resync from Shopify</strong> on a sale order rebuilds its lines from Shopify's current order, on demand. It is offered on orders that are not invoiced and not cancelled.</p>
+
+<h2>Cancellations</h2>
+<ul>
+    <li><strong>Shopify → Odoo:</strong> with <em>Cancel Orders Cancelled in Shopify</em>, the sale order is cancelled, unless it is already delivered.</li>
+    <li><strong>Odoo → Shopify:</strong> see <a href="#accounting">statuses to Shopify</a>.</li>
+</ul>
+
+<h2>The order in Odoo</h2>
+<p>Every Shopify order shows a ribbon with its Odoo status (Quotation, Quotation Sent, Sales Order, Locked on Odoo 16, Cancelled) and a <em>Shopify</em> tab with the Shopify number, store, payment and fulfillment status, last update, Shopify total, refunds, and <em>Open in Shopify</em>.</p>
+<p>If the Odoo total differs from Shopify's, a yellow banner says so and offers <em>Resync from Shopify</em> (or a credit note when invoiced). A difference of one cent comes from tax rounding: see <a href="#taxes">Taxes</a>.</p>
+<figure><img src="assets/img/screenshot_4_sale_order.jpg" alt="A Shopify order in Odoo" loading="lazy"><figcaption>A Shopify order delivered and invoiced in Odoo.</figcaption></figure>
+<figure><img src="assets/img/screenshot_3_orders.jpg" alt="Shopify orders list" loading="lazy"><figcaption>Orders: each with its Shopify payment and fulfillment status, total and invoice status.</figcaption></figure>
+
+<h2>Shopify POS orders</h2>
+<p>Orders from Shopify POS are orders in Shopify like any other, and are imported with the same rules. Use <em>Only Orders Tagged</em> or an order tag rule to send them to another warehouse or customer.</p>
+
+<h2>How often it runs</h2>
+<p>With <strong>Auto Sync Orders</strong> on: every 5, 15 or 30 minutes, every 1, 2, 6 or 12 hours, every day or every week. Each run fetches the orders created or updated since the last one, so edits, payments, fulfillments, refunds and cancellations come with them. <em>Sync Orders</em> works at any time.</p>
+
+<h2>What is synced / not synced</h2>
+<div class="tbl"><table>
+<tr><th>Synced</th><th>Not synced</th></tr>
+<tr><td>Customer and addresses, items, quantities, prices, discounts, shipping, taxes, duties, tips, tags, payment and fulfillment status, edits, cancellations, refunds, the Shopify total</td><td>Draft orders and abandoned checkouts, Shopify order notes and custom attributes, gift card sales as stored value, orders created in Odoo (they are not sent to Shopify)</td></tr>
+</table></div>
+
+<h2>Retry failed orders</h2>
+<p>An order that could not be imported (for example a product that matches nothing) goes to <span class="path">Monitoring &gt; Not Synced</span> with the error. Fix the cause and click <strong>Retry</strong>. The next order sync also tries again. Once imported, the line is marked <em>Resolved</em>.</p>
+
+<h2>Good to know</h2>
+<ul>
+    <li>Importing the same order twice is safe: it is updated, never duplicated. <span class="path">Data Checks &gt; Shopify Orders in Odoo Twice</span> shows any duplicates made by hand.</li>
+    <li>Lines keep the price the customer paid. Pricelists and Odoo's own prices never change them.</li>
+</ul>
+
+<h2>Troubleshooting</h2>
+<div class="tbl"><table>
+<tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>An order is missing</td><td>Look in <em>Skipped Orders</em> (filters) and <em>Not Synced</em> (errors). Check <em>Import Orders Since</em>.</td></tr>
+<tr><td>Product not found</td><td>Link the product or fix its SKU or barcode, then <em>Retry</em>. Or tick <em>Create Missing Products</em>.</td></tr>
+<tr><td>Total differs by a cent</td><td>Set Odoo's tax rounding to <em>Round per Line</em>, like Shopify.</td></tr>
+<tr><td>Total differs by more</td><td>Check the tax mode and tax mapping, then <em>Resync from Shopify</em>.</td></tr>
+<tr><td>Orders older than 60 days do not come</td><td>Add the <code>read_all_orders</code> permission.</td></tr>
+</table></div>
+</section>
+
+<section class="topic-sec" id="accounting" data-group="ORDERS &amp; PEOPLE">
+<div class="topic-head"><span class="num">06</span><span class="tag">ORDERS &amp; PEOPLE</span></div>
+<h1>Invoices, payments &amp; refunds</h1>
+<div class="read"></div>
+<p class="intro">Invoices for Shopify orders, one payment per Shopify transaction, journals chosen by tag or payment method, refunds as credit notes and returns, and paid, cancelled and refunded statuses back to Shopify.</p>
+
+<h2>What it does</h2>
+<ul>
+    <li>Creates and posts the invoice at the moment you choose: on import, on delivery, or when the order is fulfilled in Shopify.</li>
+    <li>Registers each successful Shopify payment as an Odoo payment, in the journal you pick.</li>
+    <li>Turns Shopify refunds into credit notes (with their refund payment) and, for restocked items, returns.</li>
+    <li>Sends paid status, cancellations and refunds made in Odoo to Shopify.</li>
+</ul>
+
+<h2>Before you start</h2>
+<ul>
+    <li>Create the journals you need: a sales journal for Shopify invoices, and a bank journal for Shopify payments (for example "Shopify Payments").</li>
+    <li>Make sure the order totals match Shopify (<a href="#taxes">Taxes</a>) before invoicing automatically.</li>
+</ul>
+
+<h2>Invoices</h2>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Create Invoices</td><td><em>Do not invoice</em>, <em>When the order is imported</em>, <em>When the order is delivered</em>, or <em>When the order is fulfilled in Shopify</em>. Invoices are created and posted automatically. "When imported" still waits for the delivery of products invoiced on delivered quantities.</td></tr>
+<tr><td>Only Paid Orders</td><td>Invoice only orders Shopify reports as paid.</td></tr>
+<tr><td>Invoice Journal</td><td>Sales journal of Shopify invoices. Empty: Odoo's default sales journal.</td></tr>
+</table></div>
+
+<h2>Payments</h2>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Register Payments</td><td>Record the payment of invoices of orders paid in Shopify: one Odoo payment per successful Shopify transaction.</td></tr>
+<tr><td>Payment Journal</td><td>Journal receiving Shopify payments.</td></tr>
+</table></div>
+
+<h2>Journal rules</h2>
+<p>Rules send some orders to other journals. Each rule has a type, the order tags or payment methods it matches (comma-separated, any case) and the journal or payment method to use.</p>
+<div class="tbl"><table>
+<tr><th>Rule type</th><th>Example</th></tr>
+<tr><td>Invoice journal by order tag</td><td>Orders tagged <code>Wholesale, B2B</code> → the "Wholesale" sales journal.</td></tr>
+<tr><td>Invoice journal by payment method</td><td><code>paypal</code> → a separate sales journal.</td></tr>
+<tr><td>Payment journal by payment method</td><td><code>gift_card</code> → a "Gift cards" journal; <code>Cash on Delivery (COD)</code> → "Cash".</td></tr>
+<tr><td>Odoo payment method by payment method</td><td><code>shopify_payments</code> → the "Shopify Payments" method of the bank journal, set on the order and its invoice.</td></tr>
+</table></div>
+<p>Payment method names are Shopify's gateway names, such as <code>shopify_payments</code>, <code>paypal</code>, <code>gift_card</code>, <code>manual</code> or <code>Cash on Delivery (COD)</code>.</p>
+
+<h2>Refunds</h2>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Sync Refunds</td><td>Apply Shopify refunds: a credit note (with its refund payment when payments are registered) for invoiced orders, lower quantities for orders not invoiced yet.</td></tr>
+<tr><td>Items Restocked in Shopify</td><td>For items refunded with <em>Restock</em>: <em>No return</em>, <em>Create the return, to validate in Odoo</em>, or <em>Create and validate the return</em>. The return comes from the order's delivery.</td></tr>
+</table></div>
+<p>Each Shopify refund is applied once and listed on the order's <em>Shopify</em> tab with its credit note and return.</p>
+
+<h2>Statuses from Odoo to Shopify</h2>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Mark Orders Paid in Shopify</td><td>When the invoices of a pending (or authorized, partly paid) Shopify order are paid in Odoo, mark the order paid in Shopify.</td></tr>
+<tr><td>Cancel Orders in Shopify</td><td>Cancelling a Shopify order in Odoo cancels it in Shopify; unfulfilled items go back to stock.</td></tr>
+<tr><td>Refund the Payment When Cancelling</td><td>Shopify also refunds the customer, to the original payment method.</td></tr>
+<tr><td>Refund in Shopify from Credit Notes</td><td>A credit note posted in Odoo for a Shopify order creates the refund in Shopify: its lines, shipping and amount, on the order's payment. Credit notes made from Shopify refunds are never sent back.</td></tr>
+</table></div>
+<p>Each status is sent when it happens in Odoo. If Shopify cannot receive it, the order shows the error and it is sent again with the fulfillment retries.</p>
+
+<h2>Good to know</h2>
+<ul>
+    <li>Each Shopify refund is applied once, and credit notes made from Shopify refunds are never sent back to Shopify.</li>
+    <li>An invoiced order is never rebuilt by an order edit: correct it with a credit note.</li>
+</ul>
+
+<h2>Troubleshooting</h2>
+<div class="tbl"><table>
+<tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>No invoice</td><td>Check <em>Create Invoices</em>, <em>Only Paid Orders</em>, and whether the products are invoiced on delivered quantities (they wait for the delivery).</td></tr>
+<tr><td>Invoice not paid</td><td>Tick <em>Register Payments</em> and set a payment journal. Orders not paid in Shopify stay unpaid.</td></tr>
+<tr><td>Refund not sent to Shopify</td><td>Open the credit note: the <em>Refund to Shopify</em> field shows the status and the error.</td></tr>
+</table></div>
+</section>
+
+<section class="topic-sec" id="fulfillment" data-group="ORDERS &amp; PEOPLE">
+<div class="topic-head"><span class="num">07</span><span class="tag">ORDERS &amp; PEOPLE</span></div>
+<h1>Fulfillment &amp; deliveries</h1>
+<div class="read"></div>
+<p class="intro">When you ship in Odoo, Shopify gets the fulfillment with the carrier and tracking number. When an order is fulfilled in Shopify, Odoo's delivery is validated.</p>
+
+<h2>What it does</h2>
+<ul>
+    <li><strong>Odoo → Shopify:</strong> validating the delivery of a Shopify order marks it fulfilled in Shopify, with the carrier and tracking number. Partial deliveries send the shipped quantities.</li>
+    <li><strong>Shopify → Odoo:</strong> orders fulfilled in Shopify (Shopify admin, POS, a 3PL or shipping app) validate the shipped quantities on the Odoo delivery, with the tracking number. Partial fulfillments leave a backorder.</li>
+</ul>
+
+<h2>How to set it up</h2>
+<ol class="steps">
+    <li>On the <em>Orders</em> tab, under <em>Fulfillment</em>, tick <strong>Send Fulfillments to Shopify</strong>, or <strong>Validate Deliveries Fulfilled in Shopify</strong>, depending on where you ship from.</li>
+    <li>Choose whether Shopify emails the customer.</li>
+    <li>On the <em>Auto Sync</em> tab, tick <strong>Auto Retry Fulfillments</strong>.</li>
+    <li>Validate a test delivery in Odoo with a tracking number and check the order in Shopify.</li>
+</ol>
+
+<h2>Settings explained</h2>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Send Fulfillments to Shopify</td><td>Mark Shopify orders fulfilled, with the tracking number, when their delivery is validated.</td></tr>
+<tr><td>Shopify Emails the Customer</td><td>Shopify sends its shipping confirmation email on fulfillment.</td></tr>
+<tr><td>Validate Deliveries Fulfilled in Shopify</td><td>Apply Shopify fulfillments to the Odoo delivery. Fulfillments sent by Odoo are never applied twice.</td></tr>
+<tr><td>Deliver From the Assigned Location</td><td>With location mapping: an order's delivery takes its stock from the first Odoo location mapped to the Shopify location the order is assigned to, within the same warehouse.</td></tr>
+<tr><td>Auto Retry Fulfillments</td><td>Resend fulfillments Shopify could not receive (network error, Shopify unavailable...), every 30 minutes up to every week.</td></tr>
+</table></div>
+
+<h2>On the delivery</h2>
+<p>A delivery of a Shopify order has a <em>Shopify Fulfillment</em> status: <span class="pill">Sent</span>, <span class="pill plum">Error</span> with the message, or To Send. <strong>Retry Shopify Fulfillment</strong> on the delivery resends it at once. The carrier comes from the delivery's carrier; the tracking number from its tracking reference.</p>
+
+<h2>Kits</h2>
+<p>For products sold as a kit (bill of materials of type Kit), the delivery holds the components. Shopify gets the number of complete kits shipped: 2 boards and 4 screws for kits of 1 board + 3 screws is sent as 1 kit.</p>
+
+<h2>What is synced / not synced</h2>
+<div class="tbl"><table>
+<tr><th>Synced</th><th>Not synced</th></tr>
+<tr><td>Shipped quantities per order line, carrier, tracking number, partial shipments</td><td>Shipping labels and rates, delivery dates, returns started in Shopify (refunds with restock create the return instead)</td></tr>
+</table></div>
+
+<h2>Troubleshooting</h2>
+<div class="tbl"><table>
+<tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>Delivery done, order not fulfilled in Shopify</td><td>Open the delivery: read the error and click <em>Retry Shopify Fulfillment</em>. The dashboard tile <em>Fulfillments Not Sent</em> lists them all.</td></tr>
+<tr><td>"Fulfillment order not found" or access denied</td><td>The fulfillment order permissions are missing, or the order is assigned to a location the app cannot fulfill from. See <a href="#permissions">Shopify permissions</a>.</td></tr>
+<tr><td>Fulfilled in Shopify, delivery still open</td><td>Tick <em>Validate Deliveries Fulfilled in Shopify</em> and run <em>Sync Orders</em>. The delivery needs the stock to validate.</td></tr>
+</table></div>
+</section>
+
+<section class="topic-sec" id="customers" data-group="ORDERS &amp; PEOPLE">
+<div class="topic-head"><span class="num">08</span><span class="tag">ORDERS &amp; PEOPLE</span></div>
+<h1>Customer sync</h1>
+<div class="read"></div>
+<p class="intro">Shopify customers and Odoo contacts, with their addresses, tags, note and tax ID, in the direction you choose.</p>
+
+<h2>What it does</h2>
+<ul>
+    <li><strong>Shopify → Odoo:</strong> Shopify customers become Odoo contacts: name, email, phone, addresses, tags, note and tax ID.</li>
+    <li><strong>Odoo → Shopify:</strong> Odoo contacts are created or updated as Shopify customers.</li>
+</ul>
+<p>Orders always find or create their customer, whatever the direction. Customer sync is for the customers who have not ordered yet, and for keeping details up to date.</p>
+
+<h2>How to set it up</h2>
+<ol class="steps">
+    <li>On the <em>Auto Sync</em> tab, set the <strong>Customer Sync Direction</strong>.</li>
+    <li>Set the options on the <em>Customers</em> tab and save.</li>
+    <li>Click <strong>Import Customers</strong> or <strong>Export Customers</strong> and choose <em>All</em> or a date range.</li>
+    <li>Check <span class="path">Customers</span> in the module menu, then tick <strong>Auto Sync Customers</strong>.</li>
+</ol>
+
+<h2>Settings explained</h2>
+<div class="tbl"><table>
+<tr><th>Setting</th><th>What it does</th></tr>
+<tr><td>Update Existing Customers</td><td>Overwrite customers already on the other side (name, email, phone, address, tags, note). Off: only create the missing ones and link the ones found by email.</td></tr>
+<tr><td>Customer Tags</td><td>Shopify customer tags ↔ Odoo contact tags.</td></tr>
+<tr><td>Only Shopify Customers Tagged</td><td>Shopify → Odoo: import only customers with one of these tags. Empty: all.</td></tr>
+<tr><td>Contacts to Export</td><td>Odoo → Shopify: <em>Customers</em> (contacts with sales or from Shopify), or <em>Only contacts already in Shopify</em>.</td></tr>
+<tr><td>Only Contacts Tagged</td><td>Odoo → Shopify: export only contacts with one of these tags.</td></tr>
+</table></div>
+
+<h2>How often it runs</h2>
+<p>With <strong>Auto Sync Customers</strong> on: every 1, 2, 6 or 12 hours, every day or every week. Each run handles the customers changed since the last one.</p>
+
+<h2>The Customers list</h2>
+<p>Each Shopify customer with its store, Odoo contact, Shopify customer ID, when it was updated in Shopify and last synced. <em>View</em> opens the contact.</p>
+
+<h2>Limits</h2>
+<ul>
+    <li>Shopify needs an email, or a phone number with its country code (<code>+...</code>), to create a customer. Contacts without either are skipped.</li>
+    <li>The fixed customer of guest orders is never exported.</li>
+</ul>
+
+<h2>Troubleshooting</h2>
+<div class="tbl"><table>
+<tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>Duplicate contacts</td><td>Contacts are matched by email (then phone on orders). Merge the duplicates in Odoo; the link follows the kept contact.</td></tr>
+<tr><td>Phone refused by Shopify</td><td>Write it in international format, for example <code>+1 212 555 0100</code>.</td></tr>
+<tr><td>Export denied</td><td>The <code>write_customers</code> permission is missing.</td></tr>
+</table></div>
+</section>
+
+<section class="topic-sec" id="taxes" data-group="ADVANCED">
+<div class="topic-head"><span class="num">09</span><span class="tag">ADVANCED</span></div>
+<h1>Taxes &amp; pricelists</h1>
+<div class="read"></div>
+<p class="intro">How Shopify's taxes become Odoo taxes so totals match to the cent, which pricelist and currency orders use, and prices per market.</p>
+
+<h2>What it does</h2>
+<p>Shopify computes the tax of each order. The module records it in Odoo with Odoo taxes of the same rate (or as tax lines), so the Odoo total equals what the customer paid. It also handles shops whose prices include tax.</p>
+
+<h2>Choose a tax option</h2>
+<div class="tbl"><table>
+<tr><th>Tax Mode</th><th>What it does</th><th>Use it when</th></tr>
+<tr><td>Match Shopify's tax rates</td><td>Uses the Odoo sales taxes whose rates equal the rates Shopify charged; falls back on the product's taxes when one is missing.</td><td>Most shops. The default.</td></tr>
+<tr><td>Odoo taxes (product + fiscal position)</td><td>Product taxes and fiscal positions decide.</td><td>Your Odoo tax setup is the reference.</td></tr>
+<tr><td>Always use one tax</td><td>The <em>Fixed Tax</em> on every line.</td><td>One rate for everything.</td></tr>
+<tr><td>Shopify's taxes as order lines</td><td>No tax on the items; each Shopify tax (name and rate) becomes a line with the amount Shopify charged.</td><td>US sales tax across many states, or when Odoo should record Shopify's tax as is.</td></tr>
+</table></div>
+
+<h2>Tax mapping</h2>
+<p>Rules that pick exact Odoo taxes for a Shopify tax, read from top to bottom:</p>
+<div class="tbl"><table>
+<tr><th>Column</th><th>What it means</th></tr>
+<tr><td>Shopify Tax</td><td>The tax title on Shopify orders, for example "VAT" or "GST". Any case.</td></tr>
+<tr><td>Rate (%)</td><td>Shopify's rate. 0: any rate.</td></tr>
+<tr><td>Country</td><td>Only for orders shipped to this country (for example EU OSS). Empty: any country.</td></tr>
+<tr><td>Odoo Taxes</td><td>The taxes put on the line.</td></tr>
+</table></div>
+
+<h2>Prices with tax included</h2>
+<p><em>Test Connection</em> reads whether your shop's prices include tax (<em>Prices Include Tax</em> on the store). The module then uses tax-included Odoo taxes for those orders, so line prices stay as in Shopify.</p>
+
+<h2>Rounding</h2>
+<div class="warn"><div class="h">Important</div><p>Shopify rounds tax on each line. If your company rounds on the whole order, totals with several taxes or many lines can differ by a cent. In <span class="path">Accounting &gt; Settings &gt; Taxes</span>, choose <em>Round per Line</em>. The store form warns you when this is not set.</p></div>
+
+<h2>Pricelists on orders</h2>
+<div class="tbl"><table>
+<tr><th>Pricelist setting</th><th>What it does</th></tr>
+<tr><td>Customer's pricelist, else one in the order's currency</td><td>The customer's pricelist when it is in the order's currency; otherwise a pricelist in that currency (created as "Shopify &lt;currency&gt;" when none exists).</td></tr>
+<tr><td>Always this pricelist</td><td>The <em>Fixed Pricelist</em> on every order.</td></tr>
+<tr><td>Let Odoo decide</td><td>Odoo's usual rule.</td></tr>
+</table></div>
+<p>The pricelist never changes the prices: lines keep what the customer paid in Shopify.</p>
+
+<h2>Currencies and markets on orders</h2>
+<p>Orders are recorded in the shop's currency. With Shopify Markets you can record them in the currency the customer paid instead: in developer mode, set <strong>Order Currency</strong> to <em>Customer's currency</em> on the <em>Orders</em> tab. That currency must be active in Odoo.</p>
+
+<h2>Pricelists on products</h2>
+<ul>
+    <li><strong>Prices From Pricelist</strong> (Odoo → Shopify): Shopify prices come from this pricelist, converted to the shop's currency.</li>
+    <li><strong>Write Shopify Prices to Pricelist</strong> (Shopify → Odoo): Shopify prices are also written as fixed prices into this pricelist.</li>
+</ul>
+
+<h3>Market catalogs</h3>
+<p>For shops selling in several markets, each market catalog can take its prices from an Odoo pricelist:</p>
+<ol class="steps">
+    <li>On the <em>Products</em> tab, click <strong>Refresh Catalogs</strong>. Your Shopify market catalogs appear with their currency.</li>
+    <li>Pick an Odoo pricelist for each catalog. Empty: Shopify keeps its own prices for that catalog.</li>
+    <li>Tick <strong>Add Odoo Taxes to Catalog Prices</strong> when the pricelist is before tax but the market shows prices with tax.</li>
+    <li>Export products: the catalog prices are sent with them.</li>
+</ol>
+
+<h2>Troubleshooting</h2>
+<div class="tbl"><table>
+<tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>Total differs by a cent</td><td>Set <em>Round per Line</em>.</td></tr>
+<tr><td>Wrong tax on lines</td><td>Add a tax mapping rule, or create the Odoo sales tax with Shopify's rate.</td></tr>
+<tr><td>Currency not found</td><td>Activate the currency in <span class="path">Accounting &gt; Configuration &gt; Currencies</span>.</td></tr>
+</table></div>
+</section>
+
+<section class="topic-sec" id="multi" data-group="ADVANCED">
+<div class="topic-head"><span class="num">10</span><span class="tag">ADVANCED</span></div>
+<h1>Several stores &amp; companies</h1>
+<div class="read"></div>
+<p class="intro">Connect more than one Shopify store, sell from several Odoo companies or warehouses, and keep their data apart.</p>
+
+<h2>What it does</h2>
+<ul>
+    <li>Each Shopify store is its own record, with its own connection, settings, schedule and links.</li>
+    <li>Each store belongs to one Odoo company and ships from one default warehouse.</li>
+    <li>Order tag rules can send some orders to another warehouse, and through it to another company.</li>
+</ul>
+
+<h2>How to set it up</h2>
+<ol class="steps">
+    <li>Create one store per Shopify shop in <span class="path">Configuration &gt; Stores</span>.</li>
+    <li>On each store, pick its <strong>Company</strong> and <strong>Warehouse</strong>.</li>
+    <li>For orders that ship from elsewhere, add <strong>Order Tag Rules</strong> on the <em>Orders</em> tab: tags → warehouse (and customer).</li>
+    <li>Map each store's Shopify locations to Odoo locations of its company.</li>
+</ol>
+
+<h2>Good to know</h2>
+<ul>
+    <li>The same Odoo product can be linked to variants of several stores. Stock is sent to each store from its own mapped locations.</li>
+    <li>Journals, taxes and pricelists belong to a company. When you change a store's company, pick them again.</li>
+    <li>The dashboard can show one store or all of them.</li>
+    <li>Each store's rules (tax, shipping, journal, tag) apply to that store only.</li>
+</ul>
+
+<h2>Troubleshooting</h2>
+<div class="tbl"><table>
+<tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>An order went to the wrong company</td><td>Check the order tag rules (first match wins) and the warehouse's company.</td></tr>
+<tr><td>"Incompatible companies" error</td><td>A journal, tax, product or location of the store belongs to another company. Pick ones of the store's company, or share the product between companies.</td></tr>
+</table></div>
+</section>
+
+<section class="topic-sec" id="permissions" data-group="ADVANCED">
+<div class="topic-head"><span class="num">11</span><span class="tag">ADVANCED</span></div>
+<h1>Shopify permissions</h1>
+<div class="read"></div>
+<p class="intro">The Admin API access scopes to give the Shopify app, what each is for, and the optional ones.</p>
+
+<h2>What it does</h2>
+<p>A Shopify app can only read and change what its scopes allow. You choose them when you create the custom app (or the Dev Dashboard app). The module asks for nothing it does not use.</p>
+
+<h2>Required permissions</h2>
+<div class="tbl"><table>
+<tr><th>Scope</th><th>Used for</th></tr>
+<tr><td><code>read_products</code>, <code>write_products</code></td><td>Product import and export, prices, images, collections, market catalog prices.</td></tr>
+<tr><td><code>read_orders</code>, <code>write_orders</code></td><td>Order import; paid status, cancellations and refunds to Shopify.</td></tr>
+<tr><td><code>read_customers</code>, <code>write_customers</code></td><td>Customers on orders and customer sync.</td></tr>
+<tr><td><code>read_inventory</code>, <code>write_inventory</code></td><td>Stock import and export.</td></tr>
+<tr><td><code>read_locations</code></td><td>Your Shopify locations, for location mapping.</td></tr>
+<tr><td><code>read_merchant_managed_fulfillment_orders</code>, <code>write_merchant_managed_fulfillment_orders</code></td><td>Fulfillments of orders shipped from your own locations.</td></tr>
+<tr><td><code>read_assigned_fulfillment_orders</code>, <code>write_assigned_fulfillment_orders</code></td><td>Fulfillments of orders assigned to the app's location.</td></tr>
+</table></div>
+
+<h2>Optional permissions</h2>
+<div class="tbl"><table>
+<tr><th>Scope</th><th>Add it when</th></tr>
+<tr><td><code>read_publications</code>, <code>write_publications</code></td><td>You use <em>Publish New Products</em>, to publish exported products to your sales channels.</td></tr>
+<tr><td><code>read_all_orders</code></td><td>You import orders older than 60 days (Shopify's limit without it).</td></tr>
+</table></div>
+
+<h2>How to grant a permission</h2>
+<ol class="steps">
+    <li>Open the app in Shopify (custom app: <span class="path">Settings &gt; Apps and sales channels &gt; Develop apps</span>; or the Dev Dashboard).</li>
+    <li>Edit the Admin API scopes, tick the new ones and save.</li>
+    <li>Install the update (custom app: <em>Install app</em> again; Dev Dashboard: release a new version). Your own OAuth app: click <em>Authorize on Shopify</em> again in Odoo.</li>
+    <li>In Odoo, click <strong>Test Connection</strong>. The <em>Advanced</em> tab shows the scopes Shopify granted.</li>
+</ol>
+
+<h2>Troubleshooting</h2>
+<div class="tbl"><table>
+<tr><th>What you see</th><th>What to do</th></tr>
+<tr><td>"Access denied" in the Sync Log</td><td>The message names the missing scope. Add it and install the app update.</td></tr>
+<tr><td>The token changed after adding scopes</td><td>Custom apps may show a new token after reinstalling: paste it in Odoo.</td></tr>
+</table></div>
+</section>
+
+<section class="topic-sec" id="dashboard" data-group="MONITOR">
+<div class="topic-head"><span class="num">12</span><span class="tag">MONITOR</span></div>
+<h1>Dashboard</h1>
+<div class="read"></div>
+<p class="intro">One screen for each store's connection, sync jobs and figures. Every figure opens the records behind it.</p>
+
+<h2>What it does</h2>
+<p>Open <span class="path">Shopify Odoo Connector (TM) &gt; Dashboard</span>. Pick a store (or all) and a period: <em>Today</em>, <em>7 days</em>, <em>30 days</em>, <em>90 days</em> or <em>All time</em>. Your choice is kept for next time. The round arrow refreshes the figures.</p>
+<figure><img src="assets/img/screenshot_1_dashboard.jpg" alt="Shopify dashboard" loading="lazy"><figcaption>Each store's sync jobs and next run, then the sync status figures.</figcaption></figure>
+
+<h2>Store card</h2>
+<p>Each store shows its connection (<span class="pill">Connected</span>, <em>Mock</em> for a test server, or an error), its shop domain and connection method, and each sync job with its frequency and next run, or <em>auto sync off</em>. Buttons run <em>Sync Orders</em>, <em>Import Products</em> or <em>Export Products</em> (by direction) and <em>Export Stock</em> right away.</p>
+
+<h2>Sync status</h2>
+<div class="tbl"><table>
+<tr><th>Figure</th><th>What it counts</th></tr>
+<tr><td>Total Orders Synced</td><td>Shopify orders imported in the period.</td></tr>
+<tr><td>Failed Orders</td><td>Orders waiting in Not Synced.</td></tr>
+<tr><td>Sync Success Rate</td><td>Orders imported out of orders tried, in the period.</td></tr>
+<tr><td>Orders Synced Today</td><td>Orders imported today.</td></tr>
+<tr><td>Last Order Synced / Inventory Last Synced</td><td>When the last order came and when stock was last synced.</td></tr>
+<tr><td>Customers</td><td>Shopify customers linked, and how many are new in the period.</td></tr>
+</table></div>
+
+<h2>Sales and operations</h2>
+<div class="tbl"><table>
+<tr><th>Figure</th><th>What it counts</th></tr>
+<tr><td>Revenue, Orders, Average Order Value</td><td>Shopify orders of the period in Odoo.</td></tr>
+<tr><td>Products Synced</td><td>Linked Shopify variants, and how many are not linked to an Odoo product.</td></tr>
+<tr><td>Awaiting Shipment</td><td>Confirmed orders not delivered yet.</td></tr>
+<tr><td>Fulfillments Not Sent</td><td>Deliveries whose fulfillment Shopify did not receive.</td></tr>
+<tr><td>To Invoice / Awaiting Payment</td><td>Orders to invoice, and orders not paid in Shopify.</td></tr>
+<tr><td>Total ≠ Shopify</td><td>Orders whose Odoo total differs from Shopify's.</td></tr>
+<tr><td>Sync Errors (24 h)</td><td>Errors in the Sync Log in the last 24 hours.</td></tr>
+</table></div>
+<p>Below: a chart of orders synced per day, the latest orders with their sync status, and what is not synced.</p>
+<figure><img src="assets/img/screenshot_2_dashboard_operations.jpg" alt="Dashboard operations" loading="lazy"><figcaption>Revenue, orders awaiting shipment, invoice or payment, totals that differ, errors, the daily chart and the latest orders.</figcaption></figure>
+</section>
+
+<section class="topic-sec" id="monitoring" data-group="MONITOR">
+<div class="topic-head"><span class="num">13</span><span class="tag">MONITOR</span></div>
+<h1>Monitoring &amp; data checks</h1>
+<div class="read"></div>
+<p class="intro">Where to see what did not sync and why, what your filters skipped, every sync action, and the data problems that cause wrong matches.</p>
+
+<h2>Not Synced</h2>
+<p><span class="path">Monitoring &gt; Not Synced</span> lists orders and products that failed: the store, the Shopify reference (order number or product title), the error, the number of attempts and the first and last attempt.</p>
+<ul>
+    <li><strong>Retry</strong> tries again now. The next scheduled sync also tries again.</li>
+    <li>Once it works, the line becomes <em>Resolved</em>.</li>
+</ul>
+
+<h2>Skipped Orders</h2>
+<p><span class="path">Monitoring &gt; Skipped Orders</span> lists the orders your settings left out on purpose, with the reason: <em>Order status filter</em>, <em>Tag filter</em>, <em>Created before the start date</em> or <em>Cancelled in Shopify</em>. <strong>Sync Now</strong> imports one anyway. <em>Open in Shopify</em> shows it in your Shopify admin.</p>
+
+<h2>Sync Log</h2>
+<p><span class="path">Monitoring &gt; Sync Log</span> records every sync action: the store, the operation, the level (<em>Info</em>, <em>Warning</em>, <em>Error</em>), the message and, for errors, what was sent and what Shopify answered. A log line can open the Odoo record it concerns.</p>
+<div class="note"><div class="h">Good to know</div><p>When you write to support, copy the error line from the Sync Log: it usually says exactly what is wrong.</p></div>
+
+<h2>Data checks</h2>
+<div class="tbl"><table>
+<tr><th>Check</th><th>What it lists</th></tr>
+<tr><td>Products Without SKU</td><td>Odoo products with no Internal Reference.</td></tr>
+<tr><td>Duplicate SKUs in Odoo</td><td>Internal References used by more than one Odoo product.</td></tr>
+<tr><td>Products Without Barcode</td><td>Odoo products with no barcode.</td></tr>
+<tr><td>Duplicate SKUs in Shopify</td><td>SKUs used by more than one Shopify variant.</td></tr>
+<tr><td>Shopify Orders in Odoo Twice</td><td>Shopify orders that have more than one sale order in Odoo.</td></tr>
+</table></div>
+<p>Fix these before syncing: duplicates make the module pick the wrong product.</p>
+
+<h2>On the records</h2>
+<ul>
+    <li><strong>Sale order:</strong> the <em>Shopify</em> tab, the total-mismatch banner and <em>Resync from Shopify</em>.</li>
+    <li><strong>Delivery:</strong> the Shopify fulfillment status and error, and <em>Retry Shopify Fulfillment</em>.</li>
+    <li><strong>Credit note:</strong> the <em>Refund to Shopify</em> status and error.</li>
+    <li><strong>Store:</strong> its chatter records connections and disconnections.</li>
+</ul>
+</section>
+
+<section class="topic-sec" id="troubleshooting" data-group="HELP">
+<div class="topic-head"><span class="num">14</span><span class="tag">HELP</span></div>
+<h1>Troubleshooting</h1>
+<div class="read"></div>
+<p class="intro">The usual problems, what causes them and how to fix them. Each topic also has its own troubleshooting table.</p>
+
+<h2>First checks</h2>
+<ol class="steps">
+    <li>The store shows <span class="pill">Connected</span>. If not, click <strong>Test Connection</strong> and read the message.</li>
+    <li><span class="path">Monitoring &gt; Not Synced</span> and <span class="path">Sync Log</span>: the error usually names the cause.</li>
+    <li>The sync is switched on and has a next run on the <em>Auto Sync</em> tab.</li>
+    <li>Odoo's scheduler runs: on your own server, Odoo needs at least one cron worker (<code>max_cron_threads</code> &gt; 0).</li>
+</ol>
+
+<h2>Connection problems</h2>
+<div class="tbl"><table>
+<tr><th>Symptom</th><th>Cause and fix</th></tr>
+<tr><td>401 or invalid API key</td><td>The token is wrong or the app was uninstalled. Copy a new token, or reinstall the app.</td></tr>
+<tr><td>Shop not found</td><td>Use the <code>myshopify.com</code> domain.</td></tr>
+<tr><td>Access denied</td><td>A scope is missing: <a href="#permissions">Shopify permissions</a>.</td></tr>
+<tr><td>Timeouts</td><td>Your server cannot reach Shopify. Check the firewall allows HTTPS to <code>*.myshopify.com</code>.</td></tr>
+<tr><td>Throttled</td><td>Shopify limits API calls per second. The module waits and retries by itself; large syncs simply take longer.</td></tr>
+</table></div>
+
+<h2>Products not syncing</h2>
+<div class="tbl"><table>
+<tr><th>Symptom</th><th>Cause and fix</th></tr>
+<tr><td>Products duplicated</td><td>SKU or barcode did not match. See <a href="#monitoring">Data checks</a>, fix, archive the duplicates.</td></tr>
+<tr><td>A product not exported</td><td>Check <em>Products to Export</em>, category, tag and in-stock filters, and that the product can be sold.</td></tr>
+<tr><td>Not visible in the online store</td><td>Draft or not published: <a href="#products">Product sync</a>.</td></tr>
+</table></div>
+
+<h2>Stock is wrong</h2>
+<div class="tbl"><table>
+<tr><th>Symptom</th><th>Cause and fix</th></tr>
+<tr><td>Not updated in Shopify</td><td>Variant not linked, <em>Sync Stock</em> off, location not mapped or not synced, or the product is not storable.</td></tr>
+<tr><td>Different number</td><td>Compare the stock source (free, on hand, forecasted) with <em>On Hand</em> and <em>Available</em> in the Products list.</td></tr>
+</table></div>
+
+<h2>Orders missing or failed</h2>
+<div class="tbl"><table>
+<tr><th>Symptom</th><th>Cause and fix</th></tr>
+<tr><td>Missing</td><td>In <em>Skipped Orders</em> (start date, status, tag) or <em>Not Synced</em> (error).</td></tr>
+<tr><td>Product not found</td><td>Link the product or tick <em>Create Missing Products</em>, then <em>Retry</em>.</td></tr>
+<tr><td>Older than 60 days</td><td>Add <code>read_all_orders</code>.</td></tr>
+<tr><td>Total differs</td><td>Tax rounding (<em>Round per Line</em>) or tax mapping, then <em>Resync from Shopify</em>.</td></tr>
+</table></div>
+
+<h2>Shipped in Odoo but not fulfilled in Shopify</h2>
+<p>Open the delivery: its <em>Shopify Fulfillment</em> status shows the error. Fix it (scopes, location) and click <em>Retry Shopify Fulfillment</em>. Check <em>Send Fulfillments to Shopify</em> is on.</p>
+
+<h2>Fulfilled in Shopify but not delivered in Odoo</h2>
+<p>Tick <em>Validate Deliveries Fulfilled in Shopify</em> and run <em>Sync Orders</em>. The delivery needs enough stock to validate.</p>
+
+<h2>Invoices and payments</h2>
+<p>See <a href="#accounting">Invoices, payments &amp; refunds</a>: the invoicing moment, <em>Only Paid Orders</em>, and the payment journal.</p>
+
+<h2>Customers</h2>
+<p>Contacts are matched by email, then phone. Shopify needs an email, or a phone with its country code, to create a customer.</p>
+
+<h2>Still stuck?</h2>
+<p>Write to <a href="mailto:support@techmarbles.com">support@techmarbles.com</a> with your Odoo version, the store, the Shopify order or product, and the line from the Sync Log.</p>
+</section>
+
+<section class="topic-sec" id="go-live" data-group="HELP">
+<div class="topic-head"><span class="num">15</span><span class="tag">HELP</span></div>
+<h1>Before you go live</h1>
+<div class="read"></div>
+<p class="intro">A checklist for the day you switch the sync on for real.</p>
+
+<h2>Connection and users</h2>
+<ul>
+    <li>The store is <span class="pill">Connected</span> and the <em>Advanced</em> tab lists every scope you need.</li>
+    <li>The people who run the sync have the <em>Sales: Administrator</em> right; others only need <em>Sales</em> user rights to see Shopify orders.</li>
+</ul>
+<h2>Products</h2>
+<ul>
+    <li>No products without SKU (or barcode) and no duplicates in <em>Data Checks</em>.</li>
+    <li>Every Shopify variant you sell is linked in the Products list.</li>
+</ul>
+<h2>Stock</h2>
+<ul>
+    <li>Each Shopify location is mapped to the right Odoo locations, or mapping is off with a default location.</li>
+    <li>One direction only. One manual stock sync done and checked on a few products.</li>
+</ul>
+<h2>Orders</h2>
+<ul>
+    <li><em>Import Orders Since</em> is set to the go-live moment.</li>
+    <li>A test order imported with the right customer, lines, taxes and total.</li>
+    <li>Odoo's tax rounding is <em>Round per Line</em>.</li>
+</ul>
+<h2>Invoices, payments and refunds</h2>
+<ul>
+    <li>Invoice and payment journals chosen; journal rules for special tags or payment methods.</li>
+    <li>A test refund applied as you expect (credit note, return).</li>
+</ul>
+<h2>Fulfillment</h2>
+<ul>
+    <li>A test delivery validated with a tracking number, and the order fulfilled in Shopify.</li>
+    <li><em>Auto Retry Fulfillments</em> is on.</li>
+</ul>
+<h2>Monitoring</h2>
+<ul>
+    <li>Someone checks the dashboard and Not Synced every day for the first weeks.</li>
+</ul>
+</section>
+
+<section class="topic-sec" id="faq" data-group="HELP">
+<div class="topic-head"><span class="num">16</span><span class="tag">HELP</span></div>
+<h1>FAQ</h1>
+<div class="read"></div>
+<p class="intro">Short answers to the questions we hear most.</p>
+
+<h3>Does it work on Odoo Online?</h3>
+<p>No. Odoo Online does not run third-party modules. Use Odoo on your own server or on Odoo.sh.</p>
+<h3>Does my data go through a Techmarbles server?</h3>
+<p>No. The module runs in your Odoo and talks straight to Shopify.</p>
+<h3>Is there a monthly fee?</h3>
+<p>No. You pay once per Odoo version on the Odoo Apps Store.</p>
+<h3>Can I connect several Shopify stores?</h3>
+<p>Yes, as many as you like, each with its own settings. See <a href="#multi">Several stores &amp; companies</a>.</p>
+<h3>Are orders imported in real time?</h3>
+<p>Orders are fetched on a schedule, as often as every 5 minutes, or at once with <em>Sync Orders</em>. Stock from Odoo to Shopify can be real time.</p>
+<h3>Can orders made in Odoo go to Shopify?</h3>
+<p>No. Orders come from Shopify. Odoo sends Shopify their fulfillments, paid status, cancellations and refunds.</p>
+<h3>Will it duplicate my products or orders?</h3>
+<p>No, when SKUs or barcodes are unique. Each Shopify variant and order is linked once, and a second import updates instead of creating.</p>
+<h3>Can I keep my Odoo order numbers?</h3>
+<p>Yes. Leave <em>Use Shopify Order Number</em> off; the Shopify number stays on the order.</p>
+<h3>Which side should own products and stock?</h3>
+<p>Usually Odoo for stock (it runs the warehouse), and whichever side your team edits for products. Choose one direction per kind of data.</p>
+<h3>What happens if Shopify is down?</h3>
+<p>Failed calls are logged and retried at the next run. Fulfillments, paid statuses, cancellations and refunds are resent by the retry job.</p>
+<h3>Can I test without touching my live shop?</h3>
+<p>Yes. Use a Shopify development store and a copy of your Odoo database.</p>
+</section>
+
+<section class="topic-sec" id="privacy" data-group="HELP">
+<div class="topic-head"><span class="num">17</span><span class="tag">HELP</span></div>
+<h1>Security &amp; privacy</h1>
+<div class="read"></div>
+<p class="intro">What the module reads and stores, who can see it, and what happens when you uninstall.</p>
+
+<h2>What it does</h2>
+<p>The module runs inside your Odoo. Orders, customers and products travel directly between Shopify and your Odoo. No third-party server is involved, and nothing is stored outside your database.</p>
+
+<h2>What the module reads in Shopify</h2>
+<p>Only what its scopes allow: products, orders, customers, inventory, locations and fulfillment orders. See <a href="#permissions">Shopify permissions</a>.</p>
+
+<h2>What it stores in Odoo</h2>
+<ul>
+    <li>The store's settings and credentials (access token, or client ID and secret).</li>
+    <li>Links between Shopify records and Odoo records (variants, customers, orders, locations).</li>
+    <li>The Sync Log and the Not Synced list, which can hold order data for diagnosis.</li>
+</ul>
+
+<h2>Who can see what</h2>
+<div class="tbl"><table>
+<tr><th>Odoo right</th><th>Can</th></tr>
+<tr><td>Sales user</td><td>See the module's menus, Shopify orders, products, customers and monitoring; retry records.</td></tr>
+<tr><td>Sales administrator</td><td>Configure stores and locations, and their rules.</td></tr>
+<tr><td>Settings administrator</td><td>See and change Shopify credentials and the <em>Advanced</em> tab.</td></tr>
+</table></div>
+
+<h2>Uninstall</h2>
+<ol class="steps">
+    <li>Disconnect each store, and uninstall the Shopify app in <span class="path">Shopify admin &gt; Apps</span> to revoke its token.</li>
+    <li>Uninstall the module in Odoo <span class="path">Apps</span>. Its stores, links, logs and settings are removed. Sale orders, invoices, products and contacts stay in Odoo.</li>
+</ol>
+</section>
+
+<section class="topic-sec" id="release-notes" data-group="HELP">
+<div class="topic-head"><span class="num">18</span><span class="tag">HELP</span></div>
+<h1>Release notes</h1>
+<div class="read"></div>
+<p class="intro">What changed in each version. Version numbers start with the Odoo version, for example 19.0.1.1.9.</p>
+
+<h2>1.1.9 (October 2026)</h2>
+<ul><li>Store page: "Real time" stock, special characters shown correctly.</li></ul>
+<h2>1.1.7 (October 2026)</h2>
+<ul>
+    <li>New name: Shopify Odoo Connector (TM), with an animated cover.</li>
+    <li>Available for Odoo 16, 17, 18, 19 and 20.</li>
+</ul>
+<h2>1.1.6 (October 2026)</h2>
+<ul><li>New logo as the app icon.</li></ul>
+<h2>1.1.5 (October 2026)</h2>
+<ul>
+    <li>Variants: a Shopify option whose Odoo attribute does not create variants no longer blocks variant creation.</li>
+    <li>Fixed customers keep their own address; delivery and invoice addresses are added under them.</li>
+</ul>
+<h2>1.1.0 (October 2026)</h2>
+<ul>
+    <li>First release on the Odoo Apps Store: orders, invoices, payments, refunds, fulfillment, products, stock and customers, with the dashboard and monitoring.</li>
+    <li><em>View</em> buttons on the Orders, Products and Customers lists; order ribbons show the Odoo order status.</li>
+    <li>Large order imports page down automatically when Shopify finds a query too costly.</li>
+</ul>
+</section>
+
+
+<div class="foot">
+    Shopify Odoo Connector (TM) by <a href="https://techmarbles.com">Techmarbles</a> for Odoo 16, 17, 18, 19 and 20.
+    Questions: <a href="mailto:support@techmarbles.com">support@techmarbles.com</a>.
+</div>
+</main>
+</div>
+<script src="assets/doc.js"></script>
+</body>
+</html>
