@@ -15,6 +15,11 @@
         store.set("doc-theme", root.dataset.theme);
     });
 
+    // Back to the listing the reader came from, for its Odoo version
+    const back = document.getElementById("back");
+    const from = /^https:\/\/apps\.odoo\.com\/apps\/modules\/\d+\.0\/tm_shopify_connector/.exec(document.referrer || "");
+    if (back && from) back.href = from[0];
+
     const slug = (s) => s.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     const topics = [...document.querySelectorAll("section.topic-sec")];
 

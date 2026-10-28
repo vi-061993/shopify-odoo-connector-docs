@@ -76,6 +76,12 @@ strong { color: var(--ink); }
 }
 .btn:hover { text-decoration: none; opacity: .92; }
 .menu-btn { display: none; }
+.back {
+    display: inline-flex; align-items: center; gap: 4px; height: 38px; padding: 0 12px 0 8px; border-radius: 10px;
+    border: 1px solid var(--line-2); background: var(--panel); color: var(--ink-2); font-weight: 500; font-size: 14.5px; white-space: nowrap;
+}
+.back:hover { text-decoration: none; border-color: var(--accent-line); color: var(--ink); }
+.back svg { width: 18px; height: 18px; }
 
 /* Layout */
 .layout { display: grid; grid-template-columns: 290px minmax(0, 1fr); }
@@ -196,6 +202,8 @@ figcaption { font-size: 13.5px; color: var(--faint); margin-top: 8px; }
     .hdr { gap: 8px; padding: 0 12px; }
     .brand span:not(.sep):not(.sub) { display: none; }
     .search kbd { display: none; }
+    .back span { display: none; }
+    .back { padding: 0; width: 38px; justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .card { transition: none; } }
 
